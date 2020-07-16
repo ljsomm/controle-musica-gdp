@@ -1,0 +1,238 @@
+*{padding: 0px; margin: 0px;}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #050517;
+}
+
+nav{
+    color: #ff6b00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav h1{
+    margin: 0px;
+}
+
+@media (max-width: 480px){
+    #logo{
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    nav h1{
+        font-size: 25px;
+    }
+
+    #Centraliza input[type="text"], input[type="password"], select{
+        text-align: center;
+        width: 225px;
+        padding: 5px;
+    }
+    
+    #Centraliza #botao{
+        color: white;
+        transition: 0.5s;
+        margin-top: 10px;
+        padding: 5px;
+        border: none;
+        width: 225px;
+        font-size: 15px;
+    }
+
+    #Centraliza label{
+        margin: 0px;
+        color: black;
+        margin-top: 5px;
+        font-size: 15px;
+    }
+
+    #ico{
+        height: 15px;
+    }
+
+    #conc{
+        text-align: center;
+        margin: 0px;
+        font-size: 15px;
+    }
+    
+    #confirm{
+        height: 15px;
+        margin-right: 5px;
+    }
+
+    #msg{
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        font-size: 12.5px;
+    }
+
+    #adc, #rmv{
+        margin-top: 7.5px;
+        font-size: 12.5px;
+    }
+
+    #cxCadastro{
+        max-height: 550px;
+    }
+}
+/*=========== tela maior ==========*/
+@media (min-width: 481px){
+    #logo{
+        height: 75px;
+        margin-right: 15px;
+    }
+
+    nav h1{
+        font-size: 40px;
+    }
+
+    #Centraliza input[type="text"], input[type="password"], select{
+        text-align: center;
+        width: 350px;
+        padding: 5px;
+        font-size: 20px;
+    }
+
+    #Centraliza #botao{
+        color: white;
+        transition: 0.5s;
+        margin-top: 10px;
+        padding: 5px;
+        border: none;
+        width: 350px;
+        font-size: 20px;
+    }
+
+    #Centraliza label{
+        margin: 0px;
+        color: black;
+        margin-top: 5px;
+        font-size: 20px;
+    }
+
+    #ico{
+        height: 20px;
+    }
+
+    #conc{
+        text-align: center;
+        margin: 0px;
+        font-size: 20px;
+    }
+    
+    #confirm{
+        height: 30px;
+        margin-right: 5px;
+    }
+
+    #msg{
+        text-align: center;
+        margin-bottom: 0px;
+        margin-top: 10px;
+        font-size: 17.5px;
+    }
+
+    #adc, #rmv{
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+    #cxCadastro{
+        max-height: 700px;
+    }
+}
+
+#flexbox{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#Centraliza{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.envio, #Centraliza .btnCadastro{
+    background-color: rgb(19, 177, 19);
+    color: white;
+    transition: 0.5s;
+    margin-top: 10px;
+    padding: 5px;
+    border: none;
+    width: 225px;
+}
+
+.segundo{
+    background-color: rgb(19, 87, 177);
+    color: white;
+    transition: 0.5s;
+    margin-top: 10px;
+    padding: 5px;
+    border: none;
+    width: 225px;
+}
+
+.envio:hover, #Centraliza  .btnCadastro:hover{
+    background-color: rgb(19, 164, 177);
+    color: white;
+    transition: 0.5s;
+}
+
+#Centraliza .segundo:hover{
+    background-color: rgb(0, 45, 87);
+    transition: 0.5s;
+}
+
+.login{
+    background-color: #ff6b00;
+}
+
+.cadastro{
+    background-color: #050517;
+}
+
+#cxCadastro{
+    background-color: white;
+    padding: 15px;
+    border-radius: 2.5px;
+    overflow:auto; 
+}
+
+#cxLogin{
+    padding: 15px;
+    border-radius: 2.5px;
+}
+
+#Instrumento{
+    margin:0px;
+}
+
+.add{
+    margin-right: 5px;
+}
+
+
+#adc, #rmv{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+#msg{
+    background-color: rgb(251, 201, 201);
+}
+
+
+
