@@ -54,6 +54,6 @@ class Usuario{
         }
     }
     public function login(){
-        //código login
+        //codigo
     }
 }
