@@ -5,25 +5,47 @@ body{
     background-color: #050517;
 }
 
-nav{
+#navLogin{
     color: #ff6b00;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-nav h1{
-    margin: 0px;
+#navMain{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    box-shadow: white 1px;
 }
 
+nav h1, #modalIn h1{
+    margin: 0px;
+}
+/*=========== tela menor ==========*/
 @media (max-width: 480px){
-    #logo{
+    #logo, #config{
         height: 50px;
         margin-right: 15px;
     }
 
+    #logo{
+        margin-left: 10px;
+    }
+
     nav h1{
         font-size: 25px;
+    }
+
+    #cabecalhoModal h1{
+        font-size: 20px;
+    }
+
+    #icoModal{
+        height: 20px;
+        margin-right: 10px;
     }
 
     #Centraliza input[type="text"], input[type="password"], select{
@@ -49,8 +71,13 @@ nav h1{
         font-size: 15px;
     }
 
-    #ico{
+    #ico, #menuIco{
         height: 15px;
+    }
+
+    #menuIco{
+        margin-right: 5px;
+        filter: invert(100%);
     }
 
     #conc{
@@ -64,7 +91,7 @@ nav h1{
         margin-right: 5px;
     }
 
-    #msg{
+    #msg, #erro{
         text-align: center;
         margin-top: 5px;
         margin-bottom: 0px;
@@ -79,6 +106,34 @@ nav h1{
     #cxCadastro{
         max-height: 550px;
     }
+
+    #menuMain{
+        width:50%;
+    }
+
+    .navMenu2{
+        top: 50px;
+    }
+
+    .corpoModal label, .corpoModal span{
+        font-size: 12.5px;
+    }
+
+    .corpoModal label{
+        margin: 0px;
+    }
+
+    .corpoModal span{
+        margin-left: 2.5px;
+    }
+
+    #modalIn{
+        width: 350px;
+    }
+
+    #profile-pic{
+        margin-right: 10px;
+    }
 }
 /*=========== tela maior ==========*/
 @media (min-width: 481px){
@@ -87,8 +142,23 @@ nav h1{
         margin-right: 15px;
     }
 
+    #config{
+        height: 55px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
     nav h1{
         font-size: 40px;
+    }
+
+    #cabecalhoModal h1{
+        font-size: 25px;
+    }
+
+    #icoModal{
+        height: 22.5px;
+        margin-right: 10px;
     }
 
     #Centraliza input[type="text"], input[type="password"], select{
@@ -115,8 +185,13 @@ nav h1{
         font-size: 20px;
     }
 
-    #ico{
+    #ico, #menuIco{
         height: 20px;
+    }
+
+    #menuIco{
+        margin-right: 10px;
+        filter: invert(100%);
     }
 
     #conc{
@@ -130,7 +205,7 @@ nav h1{
         margin-right: 5px;
     }
 
-    #msg{
+    #msg, #erro{
         text-align: center;
         margin-bottom: 0px;
         margin-top: 10px;
@@ -145,6 +220,35 @@ nav h1{
     #cxCadastro{
         max-height: 700px;
     }
+
+    .navMenu2{
+        top: 75px;
+    }
+
+    #menuMain{
+        width:20%;
+    }
+
+    .corpoModal label, .corpoModal span{
+        font-size: 17.5px;
+    }
+
+    .corpoModal label{
+        margin: 0px;
+    }
+
+    .corpoModal span{
+        margin-left: 5px;
+    }
+
+    #modalIn{
+        width: 800px;
+    }
+
+    #profile-pic{
+        margin-right: 15px;
+    }
+
 }
 
 #flexbox{
@@ -229,10 +333,109 @@ nav h1{
     cursor: pointer;
 }
 
-
 #msg{
     background-color: rgb(251, 201, 201);
 }
 
+#erro{
+    background-color: rgb(251, 201, 201);
+    border-radius:5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+#menuMain{
+    list-style: none;
+    color:white;
+    background-color:#ff6b00;
+}
 
+.navMenu{
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    transform: translateY(-100%);
+    transition: 0.25s;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navMenu2{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    transition: 0.25s;
+}
+
+li{
+    padding: 5px;
+    text-align: center;
+    transition: 0.5s;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+li:hover{
+    background-color:  rgb(2, 70, 134);
+    transition: 0.5s;
+}
+
+.logout:hover{
+    background-color:  rgb(194, 5, 5);
+    transition: 0.5s;
+}
+
+#modalEx{
+    background-color: rgba(0, 0, 0, 0.561);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+}
+
+#modalIn{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#cabecalhoModal{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 7.5px;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+}
+
+#tituloModal{
+    display: flex;
+    align-items: center;
+}
+
+#fecharModal{
+    height: 15px;
+    cursor: pointer;
+}
+
+#perfil{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 2.5px;
+}
+
+#profile-pic{
+    height: 50px;
+}
+
+.corpoModal span{
+    color: rgb(71, 71, 71);
+}

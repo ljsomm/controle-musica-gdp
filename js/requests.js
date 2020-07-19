@@ -17,9 +17,38 @@ $(document).ready(()=>{
 function loginUsuario(){
     let user = $("#txtLogin").val();
     let pass = $("#txtSenha").val();
-    if(user == "" || pass == ""){
-
+    let a = document.getElementById("erro");
+    document.getElementById("txtLogin").style =  "border-color: none; background-color:white;";
+    document.getElementById("txtSenha").style =  "border-color: none;background-color:white;";
+    a.style = "border: none";
+    if(user == "" || pass == "" ){
+        a.innerHTML =  "Preencha a todos os campos!";
+        a.style = "color: red; border: 1.5px solid red; padding:5px;";
+        if(user == ""){
+            document.getElementById("txtLogin").style =  "border-color: red; background-color: rgb(251, 201, 201);";
+        }
+        else{
+            document.getElementById("txtLogin").style =  "border-color: none; background-color:white;";
+        }
+        if(pass == ""){
+            document.getElementById("txtSenha").style =  "border-color: red; background-color: rgb(251, 201, 201);";
+        }
+        else{
+            document.getElementById("txtSenha").style =  "border-color: none;background-color:white;";
+        }
+        return false;
     }
+    else{
+        if(user.length<6 || pass.length <6 || user.length>20 || pass.length>75 ){
+            a.innerHTML =  "O username ou a senha estão incorretos!";
+            a.style = "color: red; border: 1.5px solid red; padding:5px;";
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
 }
 
 function cadastraUsuario(){
@@ -116,7 +145,7 @@ function cadastraUsuario(){
                         c[i] = b[i].value;
                     }
                     $.post({
-                        url: "api_controleMusicas.php",
+                        url: "api_cadastro_geral.php",
                         data:{
                             nm_usuario: nome,
                             nm_login: user,
@@ -125,7 +154,6 @@ function cadastraUsuario(){
                         }
                     }).done((data)=>{
                         var a = $.parseJSON(data);
-                        alert(data);
                         switch(a.return_user){
                             case 0:
                                 document.getElementById("msg").innerHTML =  "Algum erro inesperado aconteceu!";

@@ -12,23 +12,22 @@
     <script src="js/main.js"></script>
     <title>Início - Controle de Músicas</title>
 </head>
-
 <body>
-    <nav><img src="assets/logos/Logo sem fundo.png" id="logo">
+    <nav id="navLogin"><img src="assets/logos/Logo sem fundo.png" id="logo">
         <h1>Controle de Músicas</h1>
     </nav>
     <div id="flexbox">
         <div id="Centraliza" class="login">
             <div id="cxLogin">
                 <h1>Login</h1>
-                <form action="redirect.php" method="post">
+                <form action="controllers/loginController.php" method="post">
                     <label><img src="assets/icons/user.png" id="ico"> Username</label>
                     <br>
-                    <input type="text" name="txtLogin" id="txtLogin" placeholder="Insira aqui">
+                    <input maxlength="20" type="text" name="txtLogin" id="txtLogin" placeholder="Insira aqui">
                     <br>
                     <label><img src="assets/icons/senha.png" id="ico"> Senha</label>
                     <br>
-                    <input type="password" name="txtSenha" id="txtSenha" placeholder="Insira aqui">
+                    <input maxlength="75" type="password" name="txtSenha" id="txtSenha" placeholder="Insira aqui">
                     <br>
                     <input type="submit" onclick="return loginUsuario()" value="Entrar" id="botao" class="envio">
                 </form>
@@ -67,6 +66,21 @@
            </div>
         </div>
     </div>
+    <?php
+    session_start();
+    if(isset($_SESSION["user"]) && isset($_SESSION["pass"])){
+        header("Location: principal.php");
+    }
+    else{
+        if(isset($_SESSION["errLogin"])){
+            echo "<script>
+            document.getElementById('erro').innerHTML = '".$_SESSION["errLogin"]. "';
+            document.getElementById('erro').style = 'color: red; border: 1.5px solid red; padding:5px;';
+            </script>";
+            unset($_SESSION["errLogin"]);
+        }
+    }
+    ?>
 </body>
 
 </html>

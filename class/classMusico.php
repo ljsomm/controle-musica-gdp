@@ -3,7 +3,25 @@ class Musico{
     private $codigo;
     private $nome;
 
-    public function __construct($Nome){
+    public function __construct(){
+        $p = func_get_args();
+        $q = func_num_args();
+        switch($q){
+            case 0:
+                $this->__construct1();
+                break;
+            case 1:
+                $this->__construct2($p[0]);
+                echo $p[0];
+                break;
+            default:
+                echo 'erro';
+                break;
+        }
+    }
+    public function __construct1(){
+    }
+    public function __construct2($Nome){
         $this->nome = $Nome;
     }
     public function setNome($Nome){
@@ -38,5 +56,15 @@ class Musico{
         else{
             return false;
         }
+    }
+    public function retornaMusico(){
+        include '/../database/conn_database.php';
+        $stmt = $conn->prepare("SELECT nm_musico FROM tb_musico");
+        $stmt->execute();
+        $r;
+        for($i = 0; $s = $stmt->fetchColumn(); $i++){
+            $r[$i] = $s;
+        }
+        return $r;
     }
 }
