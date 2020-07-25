@@ -26,6 +26,8 @@ function removeComboInstrumentos(){
         $("#cmbInstrumento"+qt_instrumentos).remove();
         $("#br"+qt_instrumentos).remove();
         qt_instrumentos--;
+        let Cadastro = $(".btnCadastro").offset();
+        $('html, body').animate({scrollTop: Cadastro.top}, 0);
     }
 }
 
@@ -44,32 +46,49 @@ function fechaMenu(){
 
 function abreModal(modal){
     let mod = document.getElementsByClassName(modal);
-    mod[0].style="transform: translateX(0%); transition: 0.25s";
+    mod[0].style="transform: translateX(0%); visibility: visible; transition: 0.25s;";
 }
 
 function fechaModal(modal){
     let mod = document.getElementsByClassName(modal);
-    mod[0].style="transform: translateX(-100%); transition: 0.25s";
+    mod[0].style="transform: translateX(-100%); visibility: hidden; transition: 0.25s; ";
 }
 
-$(document).ready(()=>{
-    $(".banda").click(()=>{
-        let m = "membrosBanda";
-        abreModal(m);
-        $.post({
-            url: "api_musico.php"
-        }).done((data)=>{
-            let r = $.parseJSON(data);
-            for(let i = 0; i<r.length ; i++){
-                $("#corpoBanda").append("<div id='perfil'><img src='assets/profile/sem-foto.png' id='profile-pic'><div class='dadoProfile'><label>Nome:</label><span>"+r[i]+"</span><br><label>Posição:</label><span></span></div></div>");
+function cadMusica(){
+    let nm_musica = $("#txtNomeMusica").val();
+    let nm_cantor = $("#txtInterprete").val();
+    let cover_autoral = document.getElementsByName("rdbCA");
+    let sg_tipo_musica;
+    for (let index = 0; index < cover_autoral.length; index++) {
+        if(cover_autoral[index].checked){
+            if(index == 0){
+                sg_tipo_musica = "C";
             }
+            else{
+                sg_tipo_musica = "A";
+            }
+        }
+    }
+    let afinidade = document.getElementById("cmbNota").value;
+    let referencia = $("#txtReferencias").val();
+    if(referencia == ""){
+        referencia = null;
+    }   
+    if(nm_musica != "" && nm_cantor != "" && afinidade != "select"){
+        $.post({
+            url: "api_cadastro_musica.php",
+            data: {
+                musica: nm_musica,
+                interp: nm_cantor,
+                grauAf: afinidade,
+                cvaut: sg_tipo_musica,
+                ref: referencia
+            }
+        }).done((data)=>{
+            alert(data);
         })
-        fechaMenu();
-        $("#fecharModal").click(()=>{
-            fechaModal(m);
-        })
-    })
-    $(".logout").click(()=>{
-        window.location = "controllers/logoutController.php";
-    })
-})
+    }
+    else{
+        alert("Preencha a todos os campos!");
+    }
+}

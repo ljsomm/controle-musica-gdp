@@ -12,7 +12,6 @@ class Musico{
                 break;
             case 1:
                 $this->__construct2($p[0]);
-                echo $p[0];
                 break;
             default:
                 echo 'erro';

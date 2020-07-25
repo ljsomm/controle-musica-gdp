@@ -54,7 +54,10 @@
                 <br>
                 <input type="password" name="txtConfirmSenha" id="txtConfirmSenha" maxlength="75" placeholder="Insira aqui">
                 <br>
-                <label>Instrumentos que toca</label>
+                <label>Canta na banda?</label><input type="radio" name="bool" id="sim"><label for="sim" id="lblSim">Sim</label><input type="radio" name="bool" id="nao"><label for="nao" id="lblNao">Não</label>
+                <br>
+                <div id="checkbox"></div>
+                <label>Instrumentos que toca (na banda)</label>
                 <br>
                 <p id="Instrumento"></p>
                 <button id="adc"><img src='assets/icons/mais.png' id='ico' class='add'>Adicionar outro</button>

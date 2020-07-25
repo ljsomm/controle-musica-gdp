@@ -5,14 +5,36 @@ $(document).ready(()=>{
        cadastraUsuario()
     })
     $("#adc").click(()=>{
-        if(inst_bd > qt_instrumentos){
+        if(5 > qt_instrumentos){
             criaComboInstrumentos()
         }
     })
     $("#rmv").click(()=>{
         removeComboInstrumentos()
     })
+    $("#sim").click(()=>{
+        addTipoVocal()
+    })
+    $("#nao").click(()=>{
+        rmvTipoVocal()
+    })
 })
+
+function addTipoVocal(){
+    if(document.getElementById("checkbox").innerHTML == ""){
+        $("#checkbox").append("<input type='checkbox' name='cboCanta' id='cboPrincipal'><label id='lblPrincipal' for='cboPrincipal'>Principal</label><input type='checkbox' name='cboCanta' id='cboSegunda'><label id='lblSegunda' for='cboSegunda'>Segunda Voz</label><input type='checkbox' name='cboCanta' id='cboBack'><label id='lblBacking' for='cboBack'>Backing Vocal</label>");
+        document.getElementById("checkbox").style = "padding: 2.5px; margin-top: 5px;";
+        let Cadastro = $(".btnCadastro").offset();
+        $('html, body').animate({scrollTop: Cadastro.top}, 0);
+    } 
+}
+
+function rmvTipoVocal(){
+    if(document.getElementById("checkbox").innerHTML != ""){
+      document.getElementById("checkbox").innerHTML="";
+      document.getElementById("checkbox").style = "";
+    } 
+}
 
 function loginUsuario(){
     let user = $("#txtLogin").val();
@@ -58,12 +80,43 @@ function cadastraUsuario(){
     let consenha = $("#txtConfirmSenha").val();
     let a = document.getElementById("msg");
     let b = document.getElementsByName("cmb");
+    let c = document.getElementsByName("bool"); //array onde o indice se for 0 é o sim e se for 1 é o nao
+    let voc = new Array(3);
     let v = true;
     a.innerHTML =  "";
     document.getElementById("txtSenhaCad").style =  "border-color: none";
     document.getElementById("txtConfirmSenha").style =  "border-color: none";
     document.getElementById("txtNome").style =  "border-color: none";
     document.getElementById("txtUser").style =  "border-color: none";
+    if(c[0].checked == false && c[1].checked == false){
+        v = false;
+        document.getElementById("lblSim").style = "color: red;";
+        document.getElementById("lblNao").style = "color: red;";
+    }
+    else{
+        if(c[0].checked){
+            let d = document.getElementsByName("cboCanta");
+            for(let i = 0; i<d.length ; i++){
+                voc[i] = d[i].checked;
+            }
+            if(d[0].checked == false && d[1].checked == false && d[2].checked == false){
+                v = false;
+                document.getElementById("lblPrincipal").style = "color: red;";
+                document.getElementById("lblSegunda").style = "color: red;";
+                document.getElementById("lblBacking").style = "color: red;";
+            }
+            else{
+                document.getElementById("lblPrincipal").style = "color: black";
+                document.getElementById("lblSegunda").style = "color: black;";
+                document.getElementById("lblBacking").style = "color: black;";
+            }
+        }
+        else{
+            voc[0] = "nao";
+        }
+        document.getElementById("lblSim").style = "color: black;";
+        document.getElementById("lblNao").style = "color: black;";
+    }
     for (let index = 0; index < b.length; index++) {
         if(b[index].value == 0){
             v = false;
@@ -150,7 +203,8 @@ function cadastraUsuario(){
                             nm_usuario: nome,
                             nm_login: user,
                             cd_senha: senha,
-                            instrumentos: c
+                            instrumentos: c,
+                            vocal: voc
                         }
                     }).done((data)=>{
                         var a = $.parseJSON(data);
@@ -166,7 +220,7 @@ function cadastraUsuario(){
                                 document.getElementById("txtUser").style =  "border-color: red";
                                 break;
                             default:
-                                if(a.return_user == true && a.return_musico == true && a.return_posicao == true){
+                                if(a.return_user == true && a.return_musico == true && a.return_posicao == true && a.return_vocal == true){
                                 document.getElementById("cxCadastro").style = "display:flex; align-items:center;";
                                 document.getElementById("cxCadastro").innerHTML = "<img id='confirm' src='assets/icons/confirm.png'><span id='conc'>" + "Cadastro efetuado com sucesso!" +
                                 "</span>";
