@@ -812,3 +812,7 @@ td, th{
     resize: none;
 }
 
+input[type="radio"]{
+    background-color: indigo;
+    color: indigo;
+}
