@@ -57,6 +57,17 @@ class Musica{
         $conn->query("INSERT INTO tb_musica(cd_musica, nm_musica, nm_interprete_principal, ds_referencia, cd_grau_afinidade, sg_tipo_musica, cd_usuario) VALUES ('$this->codigo', '$this->nome', '$this->interprete', '$this->referencia', (SELECT cd_grau_afinidade FROM tb_grau_afinidade WHERE sg_grau_afinidade = '$this->afinidade'), '$this->tipo', '1')");
     }
 
+    public function retTodasMusicas(){
+        include '/../database/conn_database.php';
+        $stmt = $conn->prepare("SELECT cd_musica as codigo, nm_musica as nome, nm_interprete_principal as musico, g.sg_grau_afinidade as nota FROM tb_musica as m JOIN tb_grau_afinidade as g ON m.cd_grau_afinidade=g.cd_grau_afinidade ORDER BY codigo");
+        $stmt->execute();
+        $allMusic;
+        for($i = 0; $s = $stmt->fetch(PDO::FETCH_ASSOC) ; $i++){
+            $allMusic[$i] = $s;
+        }
+        return $allMusic;
+    }
+
 
     
 }

@@ -84,11 +84,37 @@ function cadMusica(){
                 cvaut: sg_tipo_musica,
                 ref: referencia
             }
-        }).done((data)=>{
-            alert(data);
-        })
+        }).done(()=>retMusica())
     }
     else{
         alert("Preencha a todos os campos!");
     }
+}
+
+function retMusica(){
+    $.post({
+        url: "api_musica.php"
+    }).done((data)=>{
+        document.getElementById("tbMb").innerHTML="<tr><th>Nome</th><th>Músico/Banda</th></tr>";
+        document.getElementById("tbB").innerHTML="<tr><th>Nome</th><th>Músico/Banda</th></tr>";
+        document.getElementById("tbR").innerHTML="<tr><th>Nome</th><th>Músico/Banda</th></tr>";
+        document.getElementById("tbI").innerHTML="<tr><th>Nome</th><th>Músico/Banda</th></tr>";
+        let musicas = $.parseJSON(data);
+        for(let i = 0; i<musicas.length; i++){
+            switch (musicas[i].nota) {
+                case "MB":
+                    $("#tbMb").append("<tr><td>"+musicas[i].nome+"</td><td>"+musicas[i].musico+"</td></tr>");
+                    break;
+                case "B":
+                    $("#tbB").append("<tr><td>"+musicas[i].nome+"</td><td>"+musicas[i].musico+"</td></tr>");
+                    break;
+                case "R":
+                    $("#tbR").append("<tr><td>"+musicas[i].nome+"</td><td>"+musicas[i].musico+"</td></tr>");
+                        break;
+                case "I":
+                    $("#tbI").append("<tr><td>"+musicas[i].nome+"</td><td>"+musicas[i].musico+"</td></tr>");
+                        break;
+            }
+        }
+    })
 }

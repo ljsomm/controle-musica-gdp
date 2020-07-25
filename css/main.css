@@ -486,11 +486,6 @@ nav h1, #modalIn h1, .paiiel h1{
         margin-top: 90px;
     }
 
-    td, th{
-        font-size: 12.5px;
-        width: 33.3333333%;
-    }
-
     .rodapePainel{
         display: flex;
         justify-content: flex-end;
@@ -518,6 +513,10 @@ nav h1, #modalIn h1, .paiiel h1{
         padding: 5px;
         margin-right: 10px;
         border-radius: 1.5rem;
+    }
+
+    td, th{  
+        font-size: 15px;
     }
 }
 
@@ -791,6 +790,7 @@ th{
 
 td, th{
     text-align: center;
+    width: 50%;
 }
 
 .rodapePainel{

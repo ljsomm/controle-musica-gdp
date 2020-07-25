@@ -98,41 +98,33 @@
             <div class="musicas">
                 <div id="mb" class="musica">
                     <h2>MB</h2>
-                    <table>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Versão</th>
-                            <th>Original</th>
-                        </tr>
+                    <table id="tbMb">
                     </table>
                 </div>
                 <div id="n" class="musica">
                     <h2>B</h2>
-                    <table>
+                    <table id="tbB">
                         <tr>
                             <th>Nome</th>
-                            <th>Versão</th>
-                            <th>Original</th>
+                            <th>Músico/Banda</th>
                         </tr>
                     </table>
                 </div>
                 <div id="r" class="musica">
                     <h2>R</h2>
-                    <table>
+                    <table id="tbR">
                         <tr>
                             <th>Nome</th>
-                            <th>Versão</th>
-                            <th>Original</th>
+                            <th>Músico/Banda</th>
                         </tr>
                     </table>
                 </div>
                 <div id="i" class="musica">
                     <h2>I</h2>
-                    <table>
+                    <table id="tbI">
                         <tr>
                             <th>Nome</th>
-                            <th>Versão</th>
-                            <th>Original</th>
+                            <th>Músico/Banda</th>
                         </tr>
                     </table>
                 </div>

@@ -1,4 +1,5 @@
 $(document).ready(()=>{
+    retMusica()
     $.post({
         url: "api_afinidade.php"
     }).done((data)=>{
