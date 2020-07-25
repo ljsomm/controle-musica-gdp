@@ -81,7 +81,7 @@
                     </select>
                 </div>
                 <div class="part part2">
-                    <label>Referências</label>
+                    <label>Observações</label>
                     <br>
                     <textarea name="txtReferencias" id="txtReferencias" rows="5" maxlength="500"></textarea>
                 </div>
