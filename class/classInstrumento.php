@@ -16,7 +16,7 @@ class Instrumento{
         return $this->nome;
     }
     public function retornaNomes(){
-        include '/../database/conn_database.php';
+        include __DIR__.'/../database/conn_database.php';
         $select = $conn->prepare("SELECT cd_instrumento, nm_instrumento FROM tb_instrumento");
         $select->execute();
         $ins;

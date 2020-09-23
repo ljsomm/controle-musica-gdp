@@ -9,7 +9,7 @@ class grauAfinidade{
         return $this->sg_grau;
     }
     public function retAfinidade(){
-        include '/../database/conn_database.php';
+        include __DIR__.'/../database/conn_database.php';
         $stmt = $conn->prepare("SELECT cd_grau_afinidade as codigo, sg_grau_afinidade as sigla, nm_grau_afinidade as nome, ds_grau_afinidade as dsc FROM tb_grau_afinidade");
         $stmt->execute();
         $afinidades = false;

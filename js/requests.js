@@ -18,6 +18,25 @@ $(document).ready(()=>{
     $("#nao").click(()=>{
         rmvTipoVocal()
     })
+   $("#txtNome").change(()=>{
+        let msg = document.getElementById("msg");
+        let a = document.getElementById("txtNome").value
+        for(let i = 0; i<a.length;i++){
+            if(!(isNaN(a[i])) && a[i]!=" "){
+                document.getElementById("txtNome").value = ""
+            }
+       }
+       if(document.getElementById("txtNome").value == ""){
+            msg.innerHTML =  "Não são permitidos números<br> no campo Nome!";
+            msg.style = "color: red";
+            document.getElementById("txtNome").style =  "border-color: red";
+       }
+       else{
+            msg.innerHTML =  "";
+            msg.style = "";
+            document.getElementById("txtNome").style =  "border-color: none";
+       }
+    })
 })
 
 function addTipoVocal(){

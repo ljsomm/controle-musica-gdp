@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    if(isset($_SESSION["user"]) && isset($_SESSION["pass"])){
+        header("Location: principal.php");
+    }
+    else{
+        if(isset($_SESSION["errLogin"])){
+            echo "<script>
+            document.getElementById('erro').innerHTML = '".$_SESSION["errLogin"]. "';
+            document.getElementById('erro').style = 'color: red; border: 1.5px solid red; padding:5px;';
+            </script>";
+            unset($_SESSION["errLogin"]);
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -40,7 +55,7 @@
             <h1>Cadastro</h1>
                 <label><img src="assets/icons/user.png" id="ico"> Nome</label>
                 <br>
-                <input type="text" name="txtNome" id="txtNome" maxlength="255" placeholder="Insira aqui">
+                <input type="text" name="txtNome" id="txtNome" maxlength="255" placeholder="Insira aqui" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$">
                 <br>
                 <label><img src="assets/icons/user.png" id="ico"> Crie um Username</label>
                 <br>
@@ -69,21 +84,6 @@
            </div>
         </div>
     </div>
-    <?php
-    session_start();
-    if(isset($_SESSION["user"]) && isset($_SESSION["pass"])){
-        header("Location: principal.php");
-    }
-    else{
-        if(isset($_SESSION["errLogin"])){
-            echo "<script>
-            document.getElementById('erro').innerHTML = '".$_SESSION["errLogin"]. "';
-            document.getElementById('erro').style = 'color: red; border: 1.5px solid red; padding:5px;';
-            </script>";
-            unset($_SESSION["errLogin"]);
-        }
-    }
-    ?>
 </body>
 
 </html>

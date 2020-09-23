@@ -16,7 +16,7 @@ class Posicao{
         return  $this->instrumento;
     }
     public function cadPosicao(){
-        include '/../database/conn_database.php';
+        include __DIR__.'/../database/conn_database.php';
         $stmt = $conn->prepare("SELECT COALESCE(MAX(cd_posicao), 0) + 1 FROM tb_posicao");
         $stmt->execute();
         $id = $stmt->fetchColumn();

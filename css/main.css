@@ -228,9 +228,21 @@ nav h1, #modalIn h1, .paiiel h1{
         margin-top: 2.5px;
     }
 
-    .rodapeModal button{
+    .rodapeButton, .btnRodape{
         padding: 5px;
         font-size: 15px;
+    }
+
+    #crpConfirm label{
+        font-size: 15px;
+    }
+
+    #rdpConfirm button{
+        width: 75px;
+    }
+    
+    #rdpConfirm #btnSim{
+        margin-right: 5px;
     }
     
     .rdbSelection{
@@ -249,6 +261,17 @@ nav h1, #modalIn h1, .paiiel h1{
     .rdbSelection label{
         margin-left: 5px;
     }
+
+    .btnOk{
+        font-size: 15px;
+        padding: 5px;
+        width: 50px;
+    }
+    
+    .propMusica label{
+        font-weight: 600;
+    }
+
 }
 /*=========== tela maior ==========*/
 @media (min-width: 481px){
@@ -377,7 +400,7 @@ nav h1, #modalIn h1, .paiiel h1{
     }
     
     #confirm{
-        height: 30px;
+        height: 25px;
         margin-right: 5px;
     }
 
@@ -473,7 +496,7 @@ nav h1, #modalIn h1, .paiiel h1{
         width: 800px;
     }
 
-    .rodapeModal button{
+    .rodapeButton, .btnRodape{
         padding: 5px;
         font-size: 17.5px;
     }
@@ -517,6 +540,28 @@ nav h1, #modalIn h1, .paiiel h1{
 
     td, th{  
         font-size: 15px;
+    }
+
+    .btnOk{
+        padding: 7.5px;
+        width: 60px;
+        cursor: pointer;
+    }
+
+    .propMusica label{
+        font-weight: 500;
+    }
+
+    #crpConfirm span{
+        font-size: 17.5px;
+    }
+
+    #rdpConfirm button{
+        width: 175px;
+    }
+
+    #btnSim{
+        margin-right: 5px;
     }
 }
 
@@ -604,11 +649,6 @@ nav h1, #modalIn h1, .paiiel h1{
     margin-top: 0px;
 }
 
-.checkbox input[type="radio"]{
-    margin-left: 5px;
-    margin-right: 2.5px;
-}
-
 #adc, #rmv{
     background-color: transparent;
     border: none;
@@ -674,7 +714,7 @@ li:hover{
 #modalEx{
     background-color: rgba(0, 0, 0, 0.561);
     position: absolute;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -698,7 +738,7 @@ li:hover{
     justify-content: space-between;
 }
 
-#tituloModal{
+.tituloModal{
     display: flex;
     align-items: center;
 }
@@ -733,13 +773,39 @@ li:hover{
 
 .rodapeModal{
     padding: 5px;
-    border-top: 1px solid black;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 
-.rodapeModal button{
+#rodapeDetalhe, #rodapeMusica{
+    justify-content: flex-end;
+}
+
+#crpConfirm{
+    padding: 7.5px;
+    display: flex;
+    justify-content: center;
+}
+
+#rdpConfirm{
+    border-top: 1px solid black;
+    justify-content: center;
+}
+
+#rdpConfirm button{
+    padding: 5px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+#rodapeMusica{
+    border-top: 1px solid black;
+}
+
+.rodapeButton, .btnRodape{
     border: none;
     outline: none;
     cursor: pointer;
@@ -749,7 +815,7 @@ li:hover{
     transition: 0.5s;
 }
 
-.rodapeModal button:hover{
+.rodapeButton:hover, .btnRodape:hover{
     outline: none;
     cursor: pointer;
     border-radius: 5px;
@@ -790,7 +856,7 @@ th{
 
 td, th{
     text-align: center;
-    width: 50%;
+    overflow: auto;
 }
 
 .rodapePainel{
@@ -815,4 +881,96 @@ td, th{
 input[type="radio"]{
     background-color: indigo;
     color: indigo;
+    margin-left: 5px;
+    margin-right: 2.5px;
+}
+
+.btnOk{
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.btnOk:focus{
+    outline: none;
+}
+
+.ret{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnCrudMusica{
+    background-color: #d9fdb7;
+    padding: 1.125px;
+    border: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btnCrudMusica:focus{
+    outline: none;
+}
+
+.btnCrudMusica:hover{
+    background-color: #b9f383;
+    transition: 0.5s;
+}
+
+.icoCrudMusica{
+    height: 17.5px;
+    margin-right: 5px;
+}
+
+#corpoDetalhe .propMusica{
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding: 5px;
+}
+
+#corpoDetalhe textarea{
+    width: 100%;
+    resize: none;
+    height: 100px;
+}
+
+.nmTb{
+    width: 50%;
+}
+
+.intTb{
+    width: 40%;
+}
+
+.dtlTb{
+    width: 10%;
+}
+
+#deleteMusica{
+    margin-right: 5px;
+}
+
+.alterarDetalhe{
+    background: none;
+    border: none;
+    color: rgb(14, 76, 185);
+    cursor: pointer;
+}
+
+.alterarDetalhe:focus{
+    outline: none;
+}
+
+.cabecalhoProp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

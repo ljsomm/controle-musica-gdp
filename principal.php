@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!(isset($_SESSION["user"])) || !(isset($_SESSION["pass"]))){
+        header("Location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,12 +20,6 @@
 </head>
 
 <body>
-    <?php
-    session_start();
-    if(!(isset($_SESSION["user"])) || !(isset($_SESSION["pass"]))){
-        header("Location: index.php");
-    }
-    ?>
     <div id="navMain">
         <img src="assets/logos/Logo sem fundo.png" id="logo">
         <img src="assets/icons/hamb.png" id="config" onClick="abriMenu()">
@@ -34,14 +34,12 @@
     <div class="rodapePainel">
         <div class="crudMusica">
             <button id="addM" class="btnPainel"><img class="icoBtnPainel" src="assets/icons/mais (1).png"></button>
-            <br>
-            <button class="btnPainel"><img class="icoBtnPainel" src="assets/icons/editar.png"></button>
         </div>
     </div>
     <div id="modalEx" class="membrosBanda">
         <div id="modalIn" class="membros">
             <div class="cabecalhoModal">
-                <div id="tituloModal">
+                <div class="tituloModal">
                     <img class="icoModal" src="assets/icons/equipe.png">
                     <h1>Membros da Banda</h1>
                 </div>
@@ -51,47 +49,51 @@
             </div>
         </div>
     </div>
-    <div id="modalEx" class="addMusica">
-        <div id="modalIn" class="addMsc">
+    <div id="modalEx" class="ConfigUser">
+        <div id="modalIn" class="config">
             <div class="cabecalhoModal">
-                <div id="tituloModal">
-                    <img class="icoModal" src="assets/icons/mais.png">
-                    <h1>Adicionar Músicas</h1>
+                <div id="tituloConfig" class="tituloModal">
+                    <img class="icoModal" src="assets/icons/settings.png">
+                    <h1>Configurações</h1>
                 </div>
-                <img id="fechaMusica" class="fecharModal" src="assets/icons/fecharModal.png">
+                <img id="fechaConfig" class="fecharModal" src="assets/icons/fecharModal.png">
             </div>
-            <div id="corpoMusica" class="corpoModal">
-                <div class="part part1">
-                    <label>Nome da Música</label>
-                    <br>
-                    <input type="text" name="txtNomeMusica" id="txtNomeMusica" placeholder="Ex: Resgate">
-                    <br>
-                    <label>Cantor/Banda</label>
-                    <br>
-                    <input type="text" name="txtInterprete" id="txtInterprete" placeholder="Ex: Girafas do Planalto">
-                    <br>
-                    <label>Cover ou Autoral?</label>
-                    <div class="rdbSelection">
-                        <input type="radio" name="rdbCA" id="rdbCover"><label for="rdbCover">Cover</label>
-                        <input type="radio" name="rdbCA" id="rdbAutoral"><label for="rdbAutoral">Autoral</label>
-                    </div>
-                    <label>Grau de afinidade</label>
-                    <select name="cmbNota" id="cmbNota">
-                        <option value="select" disabled selected>--Grau de afinidade--</option>
-                    </select>
-                </div>
-                <div class="part part2">
-                    <label>Observações</label>
-                    <br>
-                    <textarea name="txtReferencias" id="txtReferencias" rows="5" maxlength="500"></textarea>
-                </div>
+            <div id="corpoConfig" class="corpoModal">
             </div>
-            <div class="rodapeModal">
-                <button id="adicionarMusica">Adicionar</button>
+            <div id='rodapeConfig' class='rodapeModal'>
             </div>
         </div>
     </div>
-
+    <div id="modalEx" class="verDetalhes">
+        <div id="modalIn" class="detalhes">
+            <div class="cabecalhoModal">
+                <div id="tituloDetalhe" class="tituloModal">
+                </div>
+                <img id="fechaDetalhe" class="fecharModal" src="assets/icons/fecharModal.png">
+            </div>
+            <div id="corpoDetalhe" class="corpoModal">
+            </div>
+            <div id='rodapeDetalhe' class='rodapeModal'>
+            </div>
+        </div>
+    </div>
+    <div id="modalEx" class="addMusica">
+        <div id="modalIn" class="addMsc">                   
+        </div>
+    </div>
+    <div id="modalEx" class="confirmModal">
+        <div id="modalIn" class="cnfModal">
+            <div class="cabecalhoModal">
+                <div class="tituloModal">
+                    <h1>Confirmação</h1>
+                </div>
+            </div>
+            <div id="crpConfirm" class="corpoModal">
+            </div>
+            <div id='rdpConfirm' class='rodapeModal'>
+            </div>
+        </div>
+    </div>
     <div id="Centraliza" class="dashboard">
         <div class="painel">
             <h1>Controle de repertório</h1>

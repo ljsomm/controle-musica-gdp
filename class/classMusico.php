@@ -36,14 +36,14 @@ class Musico{
         return $this->codigo;
     }
     public function novoCod(){
-        include '/../database/conn_database.php';
+        include __DIR__.'/../database/conn_database.php';
         $id = $conn->prepare("SELECT COALESCE(MAX(cd_musico), 0) + 1 FROM tb_musico");
         $id->execute();
         $id = $id->fetchColumn();
         return $id;
     }
     public function cadMusico(){
-        include '/../database/conn_database.php';
+        include __DIR__.'/../database/conn_database.php';
         $id = $this->novoCod();
         $this->setCodigo($id);
         $id = $this->getCodigo();
@@ -57,7 +57,7 @@ class Musico{
         }
     }
     public function retornaMusico(){
-        include '/../database/conn_database.php';
+        include __DIR__.'/../database/conn_database.php';
         $stmt = $conn->prepare("SELECT nm_musico FROM tb_musico");
         $stmt->execute();
         $r;

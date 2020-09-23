@@ -63,7 +63,7 @@ class Usuario{
     }
     public function cadUser(){
         if(isset($this->nome) && isset($this->user) && isset($this->senha)){
-            include '/../database/conn_database.php';
+            include __DIR__.'/../database/conn_database.php';
             $v = $conn->prepare("SELECT count(nm_login) FROM tb_usuario WHERE nm_login = '$this->user'");
             $v->execute();
             $v = $v->fetchColumn();
@@ -88,7 +88,7 @@ class Usuario{
         }
     }
     public function login(){
-        include '/../database/conn_database.php';
+        include __DIR__.'/../database/conn_database.php';
         $login = $this->getUser();
         $password = $this->getSenha();
         $stmt = $conn->prepare("SELECT count(*) FROM tb_usuario WHERE nm_login=:lg and cd_senha=:ps");

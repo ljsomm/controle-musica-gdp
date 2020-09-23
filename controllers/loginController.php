@@ -1,5 +1,5 @@
 <?php
-include '/../class/classUser.php';
+include __DIR__.'/../class/classUser.php';
 $u = new Usuario($_POST["txtLogin"], $_POST["txtSenha"]);
 if($u->login() == 1){
     header("Location: ../principal.php");

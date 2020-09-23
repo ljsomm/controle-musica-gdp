@@ -7,6 +7,6 @@ $musica->setInterprete($_POST["interp"]);
 $musica->setAfinidade($_POST["grauAf"]);
 $musica->setTipo($_POST["cvaut"]);
 $musica->setReferencia($_POST["ref"]);
-$musica->cadMusica();
+echo json_encode($musica->cadMusica());
 
 
