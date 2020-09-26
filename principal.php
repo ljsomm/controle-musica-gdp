@@ -25,9 +25,9 @@
         <img src="assets/icons/hamb.png" id="config" onClick="abriMenu()">
         <nav id="navM" class="navMenu">
             <ul id="menuMain">
-                <li class="banda"><img src="assets/icons/equipe.png" id="menuIco">Membros da Banda</li>
-                <li class="config"><img  src="assets/icons/settings.png" id="menuIco">Configurações</li>
-                <li class="logout"><img src="assets/icons/logout.png" id="menuIco">Logout</li>
+                <li id="banda" class="listMain"><img src="assets/icons/equipe.png" id="menuIco">Membros da Banda</li>
+                <li id="configPerfilConta" class="listMain"><img  src="assets/icons/settings.png" id="menuIco">Configurações</li>
+                <li id="logout" class="listMain"><img src="assets/icons/logout.png" id="menuIco">Logout</li>
             </ul>
         </nav>
     </div>
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div id="modalEx" class="ConfigUser">
-        <div id="modalIn" class="config">
+        <div id="modalIn" class="userConfig">
             <div class="cabecalhoModal">
                 <div id="tituloConfig" class="tituloModal">
                     <img class="icoModal" src="assets/icons/settings.png">
@@ -59,6 +59,22 @@
                 <img id="fechaConfig" class="fecharModal" src="assets/icons/fecharModal.png">
             </div>
             <div id="corpoConfig" class="corpoModal">
+                <div id="configMenu" class="menuModal">
+                    <ul id="listMenuConfig" class="listMenuModal">
+                        <li>Perfil do Músico</li>
+                        <li>Conta</li>
+                    </ul>
+                </div>
+                <div id="configContent">
+                    <form id="perfilMusico" enctype="multipart/form-data">
+                        <div class="exFile">
+                            <div class="circuloArquivo">
+                            </div>
+                            <input name="upFile" id="upFile" type="file">
+                        </div>
+                        <button type="button" id="alteraFoto">Salvar</button>
+                    </form>
+                </div>
             </div>
             <div id='rodapeConfig' class='rodapeModal'>
             </div>

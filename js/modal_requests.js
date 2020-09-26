@@ -8,7 +8,7 @@ $(document).ready(()=>{
             $("#corpoBanda").append("<div id='perfil'><img src='assets/profile/sem-foto.png' id='profile-pic'><div class='dadoProfile'><span>"+r[i]+"</span></div></div>");
         }
     })
-    $(".banda").click(()=>{
+    $("#banda").click(()=>{
         let m = "membrosBanda";
         abreModal(m);
         fechaMenu();
@@ -16,15 +16,15 @@ $(document).ready(()=>{
             fechaModal(m, "0.25s");
         })
     })
-    $(".config").click(()=>{
-       let m = "ConfigUser"
-       abreModal(m)
+    $("#configPerfilConta").click(()=>{
+       let k = "ConfigUser"
+       abreModal(k)
        fechaMenu()
        $("#fechaConfig").click(()=>{
-           fechaModal(m, "0.25s")
+            fechaModal(k, "0.25s")
        })
     })
-    $(".logout").click(()=>{
+    $("#logout").click(()=>{
         window.location = "controllers/logoutController.php";
     })
     $("#addM").click(()=>{
