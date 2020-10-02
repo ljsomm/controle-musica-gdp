@@ -68,7 +68,8 @@
                 <div id="configContent">
                     <form id="perfilMusico" enctype="multipart/form-data">
                         <div class="exFile">
-                            <div class="circuloArquivo">
+                            <div class="inFile">
+                                <div class="circuloArquivo"></div>
                             </div>
                             <input name="upFile" id="upFile" type="file">
                         </div>

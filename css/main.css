@@ -1018,3 +1018,10 @@ input[type="radio"]{
 .exFile{
     text-align: center;
 }
+
+.infile{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
